@@ -1,0 +1,89 @@
+<div>
+    <nav>
+        <ul id="menu">
+            <!-- <li><a [routerLink]="'/home'">Home</a></li> -->
+            <li><a [routerLink]="'/login'"> Login</a></li>
+        </ul>
+    </nav>
+</div>
+    
+<div class="container">   
+    <div class="registerform">
+        <h2> {{formHeader}}</h2>
+        <!-- <form id="userform"> -->
+        <form [formGroup]="registerForm" (ngSubmit)="registeredUser()" > 
+            <div>
+                <span class="label"> Name :</span>
+                <input type="text" name="uName" formControlName="uName"/>
+                <div class="errmsg" *ngIf="registerForm.controls.uName?.touched && registerForm.controls.uName.errors?.required">Please enter Name</div>
+                <div class="errmsg" *ngIf="name.touched && name.errors?.minlength"> Name must be greater than 2 char </div>
+            </div>
+            <div>
+                <span class="label"> Email :</span>
+                <input type="text" name="uMail" formControlName="uMail"/>
+                <div class="errmsg" *ngIf="registerForm.controls.uMail?.touched && registerForm.controls.uMail.errors?.required">Please enter Email</div>
+                <div class="errmsg" *ngIf="mail.touched && mail.errors?.pattern">Please enter valid name</div>
+            </div>
+            <div>
+                <span class="label"> Mobile No :</span>
+                <input type="text" name="uMobile" formControlName="uMobile" />
+                <div class="errmsg" *ngIf="mobile.touched && mobile.errors?.required">Please enter mobile Number</div>
+            </div>
+            <div>
+                <span class="label">Age</span>
+                <input type="number" name="uAge" formControlName="uAge" />
+                <div class="errmsg" *ngIf="age.touched && age.errors?.required">Please enter Age</div>
+            </div>
+            <div>
+                <span class="label"> PAN :</span>
+                <input type="text" name="uPAN" formControlName="uPAN" />
+                <div class="errmsg" *ngIf="PAN.touched && PAN.errors?.required">Please Enter PAN</div>
+            </div>
+            <div>
+                <span class="label"> Password :</span>
+                <input type="password" name="pwd" formControlName="pwd"/>
+                <div class="errmsg" *ngIf="password.touched && password.errors?.required">Please enter pasword</div>
+                <div class="errmsg" *ngIf="password.touched && password.errors?.pattern">Password must have 8-20 chars, one number, one uppercase, one lowercase</div>
+            </div>
+            <!-- <div>
+                <span class="label">Confirm Password: </span>
+                <input type="password" name="confirmPassword" formControlName="confirmPassword">
+                <div class="errmsg" *ngIf="cPassword?.touched && cPassword.errors?.required"> Please enter confirm password </div>
+                <div class="errmsg" *ngIf="cPassword?.touched && cPassword.errors?.pwdMismatch"> Confirm password is not matching </div>
+            </div> -->
+            <div>
+                <span class="label"> Confirm Password :</span>
+                <input type="password" name="confpwd" formControlName="confpwd" />
+                <div class="errmsg" *ngIf="confpassword.touched && confpassword.errors?.required">Please enter password</div>
+                <div class="errmsg" *ngIf="confpassword.touched && confpassword.errors?.pwdMismatch">Confirm password is not matching</div>
+            </div>   
+            <div>
+                <span class="label"> Gender :</span>
+                <input type="radio" value="m" name="uGender" formControlName="uGender">Male
+                <input type="radio" value="f" name="uGender" formControlName="uGender">Female
+                <input type="radio" value="o" name="uGender" formControlName="uGender">Transgender
+                <div class="errmsg" *ngIf="registerForm.touched && gender.errors?.required">Please select a gender </div>
+            </div>
+            <div>
+                <span class="label">Hobbies: </span>
+                <label formArrayName="uHobbies" *ngFor="let hobby of registerForm.get('uHobbies')['controls']; let i=index">
+                    <input type="checkbox" [value]="hobbiesList[i].value" name="i" [formControlName]="i"/> {{hobbiesList[i].name}}
+                </label>
+
+                <div class="errmsg" *ngIf="registerForm.touched && registerForm.controls.uHobbies.errors?.required">Please select minimum 2 hobbies</div>
+            </div>
+            <!-- <div>
+                <span class="label">Hobbies : </span>
+                <input type="checkbox" name="hobbies" value="Reading">Reading
+                <input type="checkbox" name="hobbies" value="Cycling">Cycling
+                <input type="checkbox" name="hobbies" value="Music">Music
+                <input type="checkbox" name="hobbies" value="Dancing"> Dancing
+            </div>  -->
+            <div class="buttondiv">
+                <!-- <button type="submit" [disabled]="registerForm.invalid"> Register </button> -->
+                <button type="submit" > Register </button>
+                <button type="reset"> Cancel </button>
+            </div>
+        </form>    
+    </div>
+</div>

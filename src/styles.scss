@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+div, table{
+	width: 100%;
+}
+
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #f0f0f0;
+	transparent: 10;
+	margin: 0px;
+}
+
+div.fixedheader{
+	position: fixed;
+	height: 75px;
+	background-color: #00bfff;
+	text-align: center;
+	display: table;
+	
+}
+#titlediv{
+	display:table-cell;
+	font-size: 30px;
+	vertical-align: middle;
+	font-weight:bold;
+}
+
+#menu{
+	list-style-type:none;
+	position: fixed;
+	right: 80px;
+    top: 10px;
+	font-size: 18px;
+	
+}
+ #menu li{
+	 display:inline;
+ }
+ 
+ #menu li{
+	 padding: 0 5px 0 5px;
+	 
+ }
+ 
+.heading{
+	 position: fixed;
+	 top: 150px;
+	 text-align: center;
+	 color: red;
+ }
+ 

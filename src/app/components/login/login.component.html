@@ -1,0 +1,29 @@
+<nav>
+	<ul id="menu">
+		<li><a [routerLink] ="'/register'">Signup</a></li>
+		
+	</ul>
+</nav>
+<div class="regform">
+	<h2> Login</h2>
+	
+	<form id="logform" name="loginform">
+		<div>
+			<span class="label"> User Name :</span>
+			<input type="text" id="userId" name="uname" />
+		</div>
+		
+		<div>
+			<span class="label"> Password :</span>
+			<input type="password" id="pwd" name="pwd" />
+		</div>
+		
+		<div class="buttondiv">
+			<button type="button" OnClick="login()">Login</button>
+            <button type="reset" >Cancel </button>
+        </div>
+	</form>
+
+
+</div>
+
